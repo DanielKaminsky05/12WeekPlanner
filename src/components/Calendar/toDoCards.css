@@ -1,0 +1,45 @@
+
+.toDoCards{
+    margin: 10px 0px;
+    min-width: 150px;
+    padding: 5px 10px;
+    min-height: 50px;
+    border-radius: 10px;
+    background-color: #4A90E2;
+    border: solid black 2px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+ 
+}   
+
+.toDoComplete {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toDoContent {
+    flex: 1 1 auto; 
+    overflow-y: auto; 
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    
+}
+.toDoTask {
+    word-wrap: break-word;
+    margin: 0px;
+ 
+}
+
+.clicked {
+    opacity: 0.5;
+
+}
+

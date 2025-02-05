@@ -1,0 +1,46 @@
+.weekContainer {
+    display: flex;
+    gap: 20px;
+    h2 {
+        font-weight: 300;
+        font-size: 40px;
+        margin: 0px;
+    }
+
+    svg {
+        height: 48px;
+        width: 48px;
+    }
+
+    .rightWeekArrow {
+        transform: rotate(180deg);
+        margin: 0px;
+    }
+}
+
+.weekTracker {
+    margin: 50px 5%;
+    margin-bottom: 15px;
+    color: #333333;
+    
+    hr {
+        height: 1px;
+        background-color: black;
+        border: 0px;
+    }
+}
+
+.weekProgress {
+    width: 200px;
+    display: flex;
+    border-radius: 20px;
+    border: black solid 2px;
+    overflow: hidden;
+
+    .weekProgressColour {
+        flex: 0 0 50%;
+        border-radius: 10px;
+        background-color: lightblue
+    }
+}
+

@@ -1,0 +1,30 @@
+.dayColumnHeaderContainer {
+    display: flex;
+    flex-direction: column;
+    
+    p {
+        margin: 0px;
+    }
+}
+
+.dayColumnHeaderBottom {
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+}
+
+.weekDay {
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.dayColumn {
+    width: 200px;
+    min-height: 100vh;
+    border-right: black solid 2px;
+    padding-right: 25px;
+    margin-left: 10px;
+    flex-shrink: 0;
+    min-height: 100%;
+}
+

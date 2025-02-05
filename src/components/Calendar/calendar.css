@@ -1,0 +1,7 @@
+.calendar {
+    padding-left: 40px;
+    display: flex;
+    margin-top: 20px;
+    overflow: scroll; 
+    min-height: 100vh;
+}

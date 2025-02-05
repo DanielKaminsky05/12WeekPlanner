@@ -1,0 +1,15 @@
+
+.sideNavContainer {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    padding:5px;
+    position: fixed;
+    width: 30px;
+    border: black solid;
+    background-color: #333333;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    top: 25%;
+
+}

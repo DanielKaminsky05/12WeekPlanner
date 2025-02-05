@@ -1,0 +1,25 @@
+.navContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    color: #333333
+}
+
+.userLogInSignUp {
+    display: flex;
+    gap: 5px;
+    
+    button {
+        width: 90px;
+        font-size: medium;
+
+    }
+}
+
+
+h1 {
+    margin:0px;
+    font-size: xx-large;
+    letter-spacing: 0.03em;
+    font-weight: 300;
+}
