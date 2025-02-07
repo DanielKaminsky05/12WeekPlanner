@@ -1,0 +1,93 @@
+.addToDo {
+    display: flex;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5);
+    
+    
+
+
+
+}
+
+.addToDoBox {
+    background-color: #f7f7f7;
+    height: 350px;
+    width: 725px;
+    padding: 0px 20px 20px 20px;
+    border: solid #333333 2px;
+    border-radius: 10px;
+}
+
+.addToDoGridContainer {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr auto;
+    gap: 10px;
+}
+
+.addToDoHeader {
+    margin: 0px;
+    font-size: xx-large;
+}
+
+.addToDoTextArea {
+    background-color: rgba(0, 0, 0, 0.20);
+    height: 200px;
+    width: 300px;
+    resize: none;
+    border-radius: 5px;
+    border: white solid 2px;
+}
+
+.addToDoRHeading {
+    font-size: x-large;
+    font-weight: bold;
+    margin: 10px 0px;
+}
+
+.addToDoRContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.addToDoRContainer {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.addToDoRFlexContainer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.addToDoBottomContainer {
+    display: flex;
+    grid-column: span 2;
+    justify-content: space-between;
+    align-content: flex-end;
+    
+}
+
+.addToDoSubmitButton {
+    padding: 10px;
+    background-color: #333333;
+    color: #f7f7f7;
+    border-radius: 10px;
+    width: 200px;
+    height: 60px;
+    font-size: 30px;
+    
+}

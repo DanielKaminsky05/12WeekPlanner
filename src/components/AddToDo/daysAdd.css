@@ -1,0 +1,44 @@
+.daysAddContainer {
+    display: flex;
+    justify-content: space-between;
+}
+.daysAddPHeading {
+    margin: 0px;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.daysAddInput {
+    border-radius: 50%;
+    appearance: none;
+    min-width: 50px;
+    min-height: 50px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    opacity: 100%;
+    z-index: 1;
+    
+}
+.daysAddLabel {
+    margin-top: -47px;
+    font-size: 33px;
+    height: 0px;
+    z-index: 0;
+    
+}
+
+.daysAddInputContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    
+    height: 60px;
+}
+
+.daysAddInputClicked {
+    border-color: red;
+}

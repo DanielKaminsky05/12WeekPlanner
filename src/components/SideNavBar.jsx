@@ -1,7 +1,16 @@
 import React from "react";
 import "./sideNavBar.css";
 
-export default function SideNavBar() {
+export default function SideNavBar(props) {
+
+  function toggleAdd() {
+
+    const addVisible = props.addVisible;
+    props.setAddVisible(!addVisible);
+  }
+
+
+
   return (
     <div className="sideNavContainer">
       <div>
@@ -12,7 +21,7 @@ export default function SideNavBar() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           onClick={() => {
-            console.log("clicked")
+            toggleAdd()
           }}
         >
           <path

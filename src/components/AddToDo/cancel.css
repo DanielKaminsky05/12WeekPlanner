@@ -1,0 +1,13 @@
+.cancelContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 30px;
+    font-size: 20px;
+
+}
+
+.cancelContainerText {
+    display: flex;
+    align-items: center;
+}
