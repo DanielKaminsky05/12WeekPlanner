@@ -17,7 +17,7 @@ export default function ToDoCards(props) {
   
 
   return (
-    <div className={`toDoCards ${clicked ? 'clicked' : ''}`} style={{backgroundColor: `${props.toDo.color}`}}>
+    <div className={`toDoCards ${clicked ? 'clicked' : ''}`} style={{backgroundColor: props.color}}>
         <div className='toDoComplete' onClick={toggleClick} >
         {clicked && (
           <svg
@@ -37,7 +37,7 @@ export default function ToDoCards(props) {
           </svg>
         )}
         </div>
-        <div className='toDoContent' ><p className='toDoTask'>{props.toDo.text}</p>
+        <div className='toDoContent' ><p className='toDoTask' >{props.toDo}</p>
         
         
         

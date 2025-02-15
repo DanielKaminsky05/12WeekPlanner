@@ -5,20 +5,43 @@ import DaysAdd from "./DaysAdd";
 import Switch from "./Switch";
 import WeekRange from "./WeekRange";
 import ColorsInput from "./ColorsInput";
+import tasks from "../testDatabase2"
 export default function AddToDo(props) {
 
   function testSubmit(event) {
 
-    console.log(event)
     event.preventDefault();
+    tasks.push(formData);
+    props.setAddVisible(false)
   }
 
 
+  const [formData, setFormData] = useState({
+    toDo: '',
+    days: {Mon: false,
+    Tue: false,
+    Wed: false,
+    Thu: false,
+    Fri: false,
+    Sat: false,
+    Sun: false, 
+  },
+    selectedColour: '#4A90E2',
+    recurring: false,
+    weeks: ''
+
+  })
+
+  function handleInputChange(event) {
+    const {name, value} = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }))
+
+  }
 
 
-
-  const [reaccuring, setReaccuring] = useState(false);
-  const [selectedColour, setSelectedColour] = useState(0);
   return (
     <div className="addToDo">
       <div draggable="true" className="addToDoBox">
@@ -32,22 +55,25 @@ export default function AddToDo(props) {
             <textarea
               className="addToDoTextArea"
               placeholder="What needs to be done?"
+              name = 'toDo'
+              value={formData.toDo}
+              onChange={handleInputChange}
             />
           </div>
 
           <div>
-            <DaysAdd />
+            <DaysAdd formData = {formData} setFormData={setFormData}/>
             <div className="addToDoRFlexContainer">
               <div className="addToDoRContainer">
-                <p className="addToDoRHeading">Reaccuring?</p>
-                <Switch reaccuring={reaccuring} setReaccuring={setReaccuring} />
+                <p className="addToDoRHeading">Recurring?</p>
+                <Switch setFormData = {setFormData} formData = {formData} />
               </div>
-              {reaccuring ? <WeekRange /> : ""}
+              {formData.recurring ? <WeekRange /> : ""}
             </div>
           </div>
 
           <div className="addToDoBottomContainer">
-            <ColorsInput selectedColour = {selectedColour} setSelectedColour = {setSelectedColour}/>
+            <ColorsInput formData = {formData} setFormData={setFormData}/>
             
             <button type = 'submit' className="addToDoSubmitButton">Add Task</button>
 

@@ -4,7 +4,7 @@ import Calendar from './Calendar/Calendar'
 import Head from "./Head/Head"
 import AddToDo from './AddToDo/AddToDo'
 export default function App() {
-  const [addVisible, setAddVisible] = useState(true);
+  const [addVisible, setAddVisible] = useState(false);
 
   return (
     <div>   

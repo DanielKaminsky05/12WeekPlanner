@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './dayColumn.css'
 import ToDoCards from './ToDoCards'
 import CompletionTracker from './CompletionTracker';
+
 export default function DayColumn(props) {
 
   const [completed, setCompleted] = useState(0);
@@ -9,7 +10,10 @@ export default function DayColumn(props) {
 
 
 
-  const {day: days, toDo} = props.tasks;
+
+
+
+
   const date = props.date
   const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const monthsOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -20,6 +24,8 @@ export default function DayColumn(props) {
   else if (day == 3 || day == 23) suffix = 'rd';
 
 
+  
+
   return (
     
     <div className='dayColumn'>
@@ -27,14 +33,19 @@ export default function DayColumn(props) {
         <p className='weekDay'>{daysOfWeek[date.getDay()]}</p>
         <div className='dayColumnHeaderBottom'>
             <p>{monthsOfYear[date.getMonth()]} {day}{suffix}</p>
-            <p><CompletionTracker total = {toDo.length} completed = {completed}/></p>
+            <p><CompletionTracker total = {props.tasks.length} completed = {completed}/></p>
         </div>
         
       </div>
-      {toDo.map((item, index) => {
-        return (
-          <ToDoCards toDo = {item} key = {index} setCompleted = {setCompleted} completed = {completed}/>
-        )
+      {props.tasks.map((task, index) => {
+          return <ToDoCards
+            key = {index}
+            toDo = {task.toDo}
+            color = {task.selectedColour}
+            completed={completed}
+            setCompleted = {setCompleted}
+          />
+        
       })}
       
     </div>

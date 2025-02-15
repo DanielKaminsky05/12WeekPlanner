@@ -1,37 +1,37 @@
 import React, { useState } from "react";
 import "./daysAdd.css";
 
-export default function DaysAdd() {
-  const [checkedStates, setCheckedStates] = useState({
-    Mon: false,
-    Tue: false,
-    Wed: false,
-    Thu: false,
-    Fri: false,
-    Sat: false,
-    Sun: false,
-  });
+export default function DaysAdd(props) {
+ 
 
-  const handleCheckboxClick = (day) => {
-    setCheckedStates((prevState) => ({
-      ...prevState,
-      [day]: !prevState[day],
-    }));
-  };
+  function handleDayInput(event) {
+    const {value} = event.target;
+    props.setFormData((prevData) => {
+      
+      const day = prevData.days[value]
+      return {
+        ...prevData,
+        days: {
+          ...prevData.days,
+          [value]: !day
+        }
+      }
+    })
+  }
 
   return (
     <div>
       <p className="daysAddPHeading">On Which Days?</p>
       <div className="daysAddContainer">
-        {Object.keys(checkedStates).map((day) => (
+        {Object.keys(props.formData.days).map((day) => (
           <div key={day} className="daysAddInputContainer">
             <input
               type="checkbox"
               value={day}
               className={`daysAddInput ${
-                checkedStates[day] ? "daysAddInputClicked" : ""
+                props.formData.days[day] ? "daysAddInputClicked" : ""
               }`}
-              onClick={() => handleCheckboxClick(day)}
+              onClick={handleDayInput}
             />
             <p className="daysAddLabel">{day.charAt(0)}</p>
           </div>

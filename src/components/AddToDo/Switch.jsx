@@ -2,14 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 export default function Switch(props) {
-    function toggleReaccuring() {
-        console.log("clicked")
-        props.setReaccuring(!props.reaccuring)
+    function handleRecurring() {
+      props.setFormData((prevData) => ({
+        ...prevData,
+        recurring: !prevData.recurring
+      }))
+       
     }   
   return (
     <StyledWrapper>
       <label className="switch" >
-        <input type="checkbox" onClick={toggleReaccuring} />
+        <input type="checkbox" onClick={handleRecurring}  value = {props.formData.recurring}/>
         <span className="slider" />
       </label>
     </StyledWrapper>

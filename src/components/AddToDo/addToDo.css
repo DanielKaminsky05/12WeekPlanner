@@ -89,5 +89,12 @@
     width: 200px;
     height: 60px;
     font-size: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.addToDoSubmitButton:hover {
+    background-color: red;
     
 }
+
