@@ -1,21 +1,14 @@
-import React, { useState } from 'react'
-import SideNavBar from './SideNavBar'
-import Calendar from './Calendar/Calendar'
-import Head from "./Head/Head"
-import AddToDo from './AddToDo/AddToDo'
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from './HomePage'
+import LoginPage from './LoginPage';
 export default function App() {
-  const [addVisible, setAddVisible] = useState(false);
-
-  return (
-    <div>   
-    {addVisible ? <AddToDo setAddVisible = {setAddVisible} addVisible = {addVisible}/> : ""}
-      
-      <Head/>
-      <SideNavBar setAddVisible = {setAddVisible} addVisible = {addVisible}/>
-      <Calendar/>
-     
-   
-
-    </div>
+  return(
+    <Router>
+      <Routes>
+        <Route path = '/' element={<HomePage/>}/>
+        <Route path = '/login' element={<LoginPage/>}/>
+      </Routes>
+    </Router>
   )
 }

@@ -13,4 +13,29 @@
     top: 25%;
     z-index: 100;
 
+
 }
+
+
+
+.sideNavSVGs {
+    transition: transform 0.3s ease; 
+    stroke: white;
+    
+}
+
+.sideNavSVGs:hover {
+    transform: scale(1.2); 
+    stroke: red
+    
+ 
+}
+
+.deleteSVG:hover {
+    fill: red;
+}
+
+.selected {
+    stroke: red;
+}
+

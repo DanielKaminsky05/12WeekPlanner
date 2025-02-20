@@ -11,6 +11,9 @@ export default function Cancel(props) {
         className="cancelContainerText"
         onClick={() => {
           toggleAdd();
+          if (props.editTarget) {
+            props.setEditTarget(-1)
+          }
         }}
       >
         <p>Cancel</p>

@@ -1,7 +1,25 @@
 import React, { useState } from 'react'
 import "./toDoCards.css"
+import tasks from '../../testDatabase2';
 export default function ToDoCards(props) {
  const  [clicked, setClicked] = useState(false);
+
+
+ function checkEdit() {
+    if (props.editMode) {
+      props.setEditTarget(props.id)
+         
+    }
+    else if (props.deleteMode == true) {
+      const updatedTasks = props.tasks.filter(task => task.id != props.id);
+      props.setTasks(updatedTasks)
+      console.log(updatedTasks)
+    
+      
+    }
+    
+ }
+
 
   function toggleClick() {
     if (clicked) {
@@ -17,7 +35,8 @@ export default function ToDoCards(props) {
   
 
   return (
-    <div className={`toDoCards ${clicked ? 'clicked' : ''}`} style={{backgroundColor: props.color}}>
+    <div className={`toDoCards ${clicked ? 'clicked' : ''}`} style={{backgroundColor: props.color}} onClick={checkEdit
+    }>
         <div className='toDoComplete' onClick={toggleClick} >
         {clicked && (
           <svg

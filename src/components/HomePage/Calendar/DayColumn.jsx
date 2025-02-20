@@ -33,17 +33,24 @@ export default function DayColumn(props) {
         <p className='weekDay'>{daysOfWeek[date.getDay()]}</p>
         <div className='dayColumnHeaderBottom'>
             <p>{monthsOfYear[date.getMonth()]} {day}{suffix}</p>
-            <p><CompletionTracker total = {props.tasks.length} completed = {completed}/></p>
+            <p><CompletionTracker total = {props.tasksDay.length} completed = {completed}/></p>
         </div>
         
       </div>
-      {props.tasks.map((task, index) => {
+      {props.tasksDay.map((task, index) => {
           return <ToDoCards
             key = {index}
             toDo = {task.toDo}
             color = {task.selectedColour}
             completed={completed}
             setCompleted = {setCompleted}
+            id = {task.id}
+            editTarget = {props.editTarget} 
+            setEditTarget = {props.setEditTarget}
+            editMode = {props.editMode}
+            deleteMode={props.deleteMode}
+            setTasks={props.setTasks}
+            tasks = {props.tasks}
           />
         
       })}

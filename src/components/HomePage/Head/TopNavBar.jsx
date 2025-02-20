@@ -7,7 +7,7 @@ export default function TopNavBar() {
       <h1>12 Week Planner</h1>
       <div className='userLogInSignUp'>
         <button>Log In</button>
-        <button>Sign Up</button>
+
       </div>
 
     </nav>

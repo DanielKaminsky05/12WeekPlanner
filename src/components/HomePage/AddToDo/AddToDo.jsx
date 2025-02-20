@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React, {useState } from "react";
 import "./addToDo.css";
 import Cancel from "./Cancel";
 import DaysAdd from "./DaysAdd";
 import Switch from "./Switch";
 import WeekRange from "./WeekRange";
 import ColorsInput from "./ColorsInput";
-import tasks from "../testDatabase2"
+
 export default function AddToDo(props) {
 
   function testSubmit(event) {
 
     event.preventDefault();
-    tasks.push(formData);
+    props.setTasks(prevValue => [...prevValue, formData])
     props.setAddVisible(false)
   }
 
-
   const [formData, setFormData] = useState({
     toDo: '',
-    days: {Mon: false,
+    days: {
+    Mon: false,
     Tue: false,
     Wed: false,
     Thu: false,
@@ -28,9 +28,13 @@ export default function AddToDo(props) {
   },
     selectedColour: '#4A90E2',
     recurring: false,
-    weeks: ''
+    weeks: '',
+    id: props.tasks.length + 1
 
   })
+  
+
+  
 
   function handleInputChange(event) {
     const {name, value} = event.target;
