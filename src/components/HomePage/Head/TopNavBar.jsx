@@ -1,11 +1,13 @@
 import React from 'react'
 import './topNavBar.css'
 import { NavLink } from "react-router-dom";
-import useAuth from '../../UseAuth';
+import useAuth from '../../../UserAuth/UseAuth';
 import { supabase } from '../../../supabase';
+import UserMenu from "./UserMenu"
+import { useAuthContext } from '../../../UserAuth/AuthContext';
 
 export default function TopNavBar() {
-  const { user, loading } = useAuth();
+  const { user, loading } = useAuthContext()
   if (loading) return <p>Loading...</p>;
 
   async function handleLogout() {
@@ -17,7 +19,8 @@ export default function TopNavBar() {
     <nav className='navContainer'>
       <h1>12 Week Planner</h1>
       <div className='userLogInSignUp'>
-      {user ? <button className='topNavBarLoginButton' onClick={handleLogout}>Sign Out</button>: <NavLink  to="/login"><button className='topNavBarLoginButton'>Log in</button></NavLink> }
+      
+      {user ? <UserMenu/> : <NavLink  to="/login"><button className='topNavBarLoginButton'>Log in</button></NavLink> }
       </div>
     </nav>
   )

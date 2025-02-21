@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import SideNavBar from './HomePage/sideNavBar/SideNavBar'
-import Calendar from './HomePage/Calendar/Calendar'
-import Head from "./HomePage/Head/Head"
-import AddToDo from './HomePage/AddToDo/AddToDo'
-import EditToDo from "./HomePage/AddToDo/EditToDo"
-import task1 from './testDatabase2'
+import SideNavBar from './sideNavBar/SideNavBar'
+import Calendar from './Calendar/Calendar'
+import Head from "./Head/Head"
+import AddToDo from './AddToDo/AddToDo'
+import EditToDo from "./AddToDo/EditToDo"
+import task1 from './../testDatabase2'
 export default function HomePage() {
   const [addVisible, setAddVisible] = useState(false);
   const [editMode, setEditMode] = useState(false)

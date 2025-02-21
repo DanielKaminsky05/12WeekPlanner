@@ -1,5 +1,5 @@
 import React from 'react'
-import Register from './RegisterPage/Register'
+import Register from './Register'
 export default function RegisterPage() {
   return (
     <div>
