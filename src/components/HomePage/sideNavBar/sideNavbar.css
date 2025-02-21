@@ -21,6 +21,7 @@
 .sideNavSVGs {
     transition: transform 0.3s ease; 
     stroke: white;
+    fill: #333333
     
 }
 

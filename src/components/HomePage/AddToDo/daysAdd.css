@@ -21,6 +21,11 @@
     z-index: 1;
     
 }
+
+.logInForgot {
+    display: flex;
+    justify-content: space-between;
+}
 .daysAddLabel {
     margin-top: -47px;
     font-size: 33px;
