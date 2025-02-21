@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./logIn.css"
+import { Link } from 'react-router-dom';
 
 
 export default function LogIn() {
     
     const [form, setForm] = useState({
         username: "",
-        password: ""
+        password: "",
+        remember: false
     })
 
     function changeForm(event) {
@@ -17,15 +19,21 @@ export default function LogIn() {
         }))
     }
 
-
-
+    function changeRemember() {
+        const value = form.remember
+        setForm((prevValue) => ({
+            ...prevValue,
+            remember: !value
+        }))
+       
+    }
 
 
   return (
 
     
     <div className='logIn'>
-    <h2 className='logInWebsiteName'>12 Week Planner</h2>
+    <Link to = '/' className='logInWebsiteName'>12 Week Planner</Link>
       <div className='logInContainer'>
         <h1 className='logInWelcome'>Welcome Back</h1>
         <form className='logInForm'>
@@ -39,7 +47,7 @@ export default function LogIn() {
            </div> 
             <div className='logInForgot'>
                 <div className='logInRemember'>
-                    <input type='Checkbox'/>
+                    <input value = {form.remember} className='logInRememberInput' type='Checkbox' onChange={changeRemember}/>
                     <p>Remember Me</p>
                 </div>
                 <div>
@@ -47,8 +55,12 @@ export default function LogIn() {
                 </div>
                
             </div>
-            <button className='logInButton'>Sign In</button>
+            <button type = 'submit' className='logInButton'>Sign In</button>
         </form>
+        <div className='logInRegisterLink'>
+            <p>New to 12 Week Planner?</p>
+            <Link to="/register">Join Now</Link>
+        </div>
       </div>
     </div>
 

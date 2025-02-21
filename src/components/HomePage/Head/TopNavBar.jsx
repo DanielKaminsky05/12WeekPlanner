@@ -7,7 +7,7 @@ export default function TopNavBar() {
     <nav className='navContainer'>
       <h1>12 Week Planner</h1>
       <div className='userLogInSignUp'>
-      <NavLink to="/login"><button>Login</button></NavLink>
+      <NavLink  to="/login"><button className='topNavBarLoginButton'>Log in</button></NavLink>
         
 
       </div>
