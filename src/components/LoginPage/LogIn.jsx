@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import "./logIn.css"
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import { supabase } from '../../supabase';
 
 export default function LogIn() {
-    
+    const navigate = useNavigate();
+    const [error, setError] = useState(null);
     const [form, setForm] = useState({
-        username: "",
+        email: "",
         password: "",
         remember: false
     })
@@ -28,6 +29,24 @@ export default function LogIn() {
        
     }
 
+    async function handleLogin(event) {
+        event.preventDefault()
+        setError(null)
+
+        const {data, error} = await supabase.auth.signInWithPassword({
+            email: form.email,
+            password: form.password
+        })
+        if (error) {
+            console.error("Login error:", error.message);
+            setError(error.message);
+          } else {
+            console.log("User logged in:", data);
+            navigate('/')
+          }
+    }
+
+    
 
   return (
 
@@ -36,14 +55,14 @@ export default function LogIn() {
     <Link to = '/' className='logInWebsiteName'>12 Week Planner</Link>
       <div className='logInContainer'>
         <h1 className='logInWelcome'>Welcome Back</h1>
-        <form className='logInForm'>
+        <form className='logInForm' onSubmit={handleLogin}>
             <div>
                 <h3 className='logInInputSubHeading'>Email Address</h3>
-                <input name = 'username' type = 'text' onChange={changeForm} value = {form.username} className='logInInput'/>
+                <input name = 'email' type = 'email' onChange={changeForm} value = {form.username} className='logInInput'/>
             </div>
             <div>
                 <h3 className='logInInputSubHeading'>Password</h3>
-                <input name = 'password' type = 'text' onChange={changeForm} value = {form.password} className='logInInput'/>
+                <input name = 'password' type = 'password' onChange={changeForm} value = {form.password} className='logInInput'/>
            </div> 
             <div className='logInForgot'>
                 <div className='logInRemember'>

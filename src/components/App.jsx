@@ -3,7 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from './HomePage'
 import LoginPage from './LoginPage';
 import RegisterPage from './RegisterPage';
-export default function App() {
+import useAuth from './UseAuth';
+
+export default  function App() {
+  const { user, loading } = useAuth();
+  console.log("Current User:", user);
   return(
     <Router>
       <Routes>
