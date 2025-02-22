@@ -5,7 +5,7 @@ import DaysAdd from "./DaysAdd";
 import Switch from "./Switch";
 import WeekRange from "./WeekRange";
 import ColorsInput from "./ColorsInput";
-import tasks from "../../testDatabase2"
+
 export default function AddToDo(props) {
 
   function testSubmit(event) {
@@ -33,7 +33,7 @@ export default function AddToDo(props) {
     selectedColour: '#4A90E2',
     recurring: false,
     weeks: '',
-    id: tasks.length + 1
+    id: 0
 
   })
   

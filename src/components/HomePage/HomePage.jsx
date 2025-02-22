@@ -4,13 +4,13 @@ import Calendar from './Calendar/Calendar'
 import Head from "./Head/Head"
 import AddToDo from './AddToDo/AddToDo'
 import EditToDo from "./AddToDo/EditToDo"
-import task1 from './../testDatabase2'
+
 export default function HomePage() {
   const [addVisible, setAddVisible] = useState(false);
   const [editMode, setEditMode] = useState(false)
   const [editTarget, setEditTarget] = useState(-1)
   const [deleteMode, setDeleteMode] = useState(false)
-  const [tasks, setTasks] = useState(task1);
+  const [tasks, setTasks] = useState([]);
   return (
     <div>   
     {addVisible ? <AddToDo setAddVisible = {setAddVisible} addVisible = {addVisible} setTasks = {setTasks}  tasks = {tasks}/> : ""}
