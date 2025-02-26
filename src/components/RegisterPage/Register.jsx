@@ -10,6 +10,8 @@ export default function Register() {
     confirmPassword: ''
   });
 
+  const [passwordError, setPasswordError] = useState(false);
+
   const navigate = useNavigate();
 
   function changeForm(event) {
@@ -28,8 +30,19 @@ export default function Register() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    signUpWithEmail(form.email, form.password)
-    navigate('/')
+    if (form.password == form.confirmPassword) {
+      signUpWithEmail(form.email, form.password)
+      navigate('/')
+    }
+    else if (form.password != form.confirmPassword) {
+      setPasswordError("Error: Passwords do not match");
+    }
+    else if (form.password.length < 6) {
+      setPasswordError("Error: Password needs to be greater than 6 characters")
+    }
+    
+    
+    
   }
 
   return (
@@ -67,8 +80,11 @@ export default function Register() {
               onChange={changeForm}
               className='registerInput'
             />
+            {passwordError ? <p className='registerInputError'>{passwordError}</p>: ""}
           </div>
+          
           <div>
+          
             <div className='registerLogInLink'>
               <p>Already have an Account?</p>
               <Link to='/login'>Log In Here</Link>

@@ -42,6 +42,7 @@
 }
 
 .registerSubmitButton {
+    cursor: pointer;
     transition: 0.3s ease;
     margin-top: 10px;
     height: 50px;
@@ -62,6 +63,7 @@
 }
 
 .registerLogInLink {
+    
     display: flex;
     gap: 5px;
     align-content: center;
@@ -75,8 +77,15 @@
     }
 
     a {
-        color: blue
+        color: blue;
+        cursor: pointer;
     }
 
     
+}
+
+.registerInputError {
+    color: #ff0000;
+    margin:0px;
+    font-size: small;
 }

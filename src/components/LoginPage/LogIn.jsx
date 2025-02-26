@@ -39,7 +39,10 @@ export default function LogIn() {
         })
         if (error) {
             console.error("Login error:", error.message);
-            setError(error.message);
+            if (error.status == 400) {
+                setError("Invalid Login Credentials");
+            }
+            
           } else {
             console.log("User logged in:", data);
             navigate('/')
@@ -63,6 +66,7 @@ export default function LogIn() {
             <div>
                 <h3 className='logInInputSubHeading'>Password</h3>
                 <input name = 'password' type = 'password' onChange={changeForm} value = {form.password} className='logInInput'/>
+                {error ? <p className='registerInputError'>{error}</p>: ""}
            </div> 
             <div className='logInForgot'>
                 <div className='logInRemember'>
