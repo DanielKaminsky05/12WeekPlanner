@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './register.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../../supabase';
+import { useAuthContext } from '../../UserAuth/AuthContext';
 
 export default function Register() {
+
+  
+
+
   const [form, setForm] = useState({
     email: '',
     password: '',
@@ -13,6 +18,13 @@ export default function Register() {
   const [passwordError, setPasswordError] = useState(false);
 
   const navigate = useNavigate();
+  const {user, loading} = useAuthContext();
+  useEffect(() => {
+    
+    if (user) {
+      navigate('/');
+    }
+  }, [user, navigate])
 
   function changeForm(event) {
     const { name, value } = event.target;
@@ -24,15 +36,22 @@ export default function Register() {
 
   async function signUpWithEmail(email, password) {
     const {user, error} = await supabase.auth.signUp({email, password});
-    if (error) console.error('Error signing up:', error.message);
-    else console.log('Check your email for verification:', user);
+    if (error) {
+      if (error.status = 422) {
+        setPasswordError("Error: Email Address is taken")
+      }
+      else setPasswordError(error.message)
+    }
+    else {
+      navigate('/')
+    }
   }
 
   function handleSubmit(event) {
     event.preventDefault();
     if (form.password == form.confirmPassword) {
       signUpWithEmail(form.email, form.password)
-      navigate('/')
+    
     }
     else if (form.password != form.confirmPassword) {
       setPasswordError("Error: Passwords do not match");

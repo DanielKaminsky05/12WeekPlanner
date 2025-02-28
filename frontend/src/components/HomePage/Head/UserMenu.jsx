@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthContext } from "../../../UserAuth/AuthContext";
 import "./userMenu.css";
 import { Link } from "react-router-dom";
-import {supabase} from "./../../../supabase"
+import {supabase} from "../../../supabase"
 export default function UserMenu() {
   const [isActive, setIsActive] = useState(false);
 

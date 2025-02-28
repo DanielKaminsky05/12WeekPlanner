@@ -2,9 +2,21 @@ import React, { useState, useEffect } from 'react'
 import "./logIn.css"
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../../supabase';
+import { useAuthContext } from '../../UserAuth/AuthContext';
 
 export default function LogIn() {
     const navigate = useNavigate();
+
+    const {user, loading} = useAuthContext()
+    useEffect(() => {
+        
+        if (user) {
+          navigate('/');
+        }
+      }, [user, navigate])
+
+
+
     const [error, setError] = useState(null);
     const [form, setForm] = useState({
         email: "",
