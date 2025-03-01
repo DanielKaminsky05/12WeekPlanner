@@ -17,7 +17,17 @@ app.use(express.json());
 
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 
+app.get("/", (req, res) => {
+    res.send("hello");
+})
 
 app.listen(PORT, () => {
     console.log(`Server is Running on Port ${PORT}`);
+})
+
+app.post("/tasks/:userID", async (req, res) => {
+    const {userID} = req.params;
+    
+
+    
 })

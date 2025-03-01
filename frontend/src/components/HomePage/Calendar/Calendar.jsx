@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import './calendar.css'
 import DayColumn from './DayColumn'
+import WeekTracker from './WeekTracker';
 const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
 export default function Calendar(props) {
   const today = new Date();
   const dates = [];
-
+  const [week,setWeek] = useState(1);
 
   console.log(props.tasks)
 
   for (let i = 0; i < 7; i++) {
     const date = new Date(today);
-    date.setDate(today.getDate() + i);
+    date.setDate(today.getDate() + i + 7 * (week-1));
     dates.push(date);
   }
 
@@ -20,6 +21,10 @@ export default function Calendar(props) {
   
   
   return (
+    <div>
+
+    
+    <WeekTracker week = {week} setWeek = {setWeek}/>
     <div className='calendar'>
       {dates.map((date, index) => {
         const tasksDay = []; // Initialize tasksDay for each date
@@ -43,6 +48,7 @@ export default function Calendar(props) {
          
         );
       })}
+    </div>
     </div>
   );
   

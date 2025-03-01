@@ -1,13 +1,30 @@
 import React from "react";
 import "./weekTracker.css"
 
-export default function WeekTracker() {
+export default function WeekTracker({week, setWeek}) {
+
+  const changeWeekForward = () => {
+    if (week < 12) {
+      setWeek(week + 1)
+    }
+  }
+
+  const changeWeekBackward = () => {
+    if (week > 1) {
+      setWeek(week - 1)
+    }
+  }
+
+
+
+
+
   return (
     <div className="weekTracker">
       <div className="weekContainer">
         <svg
           className="leftWeekArrow"
-          
+          onClick={changeWeekBackward}
           viewBox="0 0 60 60"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -20,13 +37,13 @@ export default function WeekTracker() {
             strokeLinejoin="round"
           />
         </svg>
-        <h2>Week 1/12</h2>
+        <h2>Week {week}/12</h2>
         <div className="weekProgress">
             <div className="weekProgressColour"></div>
         </div>
         <svg
           className="rightWeekArrow"
-        
+          onClick={changeWeekForward}
           viewBox="0 0 60 60"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
