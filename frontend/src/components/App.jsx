@@ -6,8 +6,6 @@ import RegisterPage from './RegisterPage/RegisterPage';
 import {  AuthProvider } from '../UserAuth/AuthContext';
 import axios from 'axios';
 export default  function App() {
-
-
  
   return(
     <AuthProvider>
