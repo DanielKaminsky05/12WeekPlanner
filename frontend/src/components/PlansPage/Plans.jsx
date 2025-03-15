@@ -1,5 +1,5 @@
 import React from 'react'
-import "./PlanPage.css"
+import "./planPage.css"
 import PlanComponent from './PlanComponent'
 import EditComponent from './EditComponent'
 import CreateComponent from './CreateComponent'
