@@ -28,7 +28,7 @@ export default function AddToDo(props) {
   },
     selectedColour: '#4A90E2',
     recurring: false,
-    week: '',
+    week: props.week,
     id: props.tasks.length + 1
 
   })

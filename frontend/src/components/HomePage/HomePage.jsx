@@ -5,6 +5,7 @@ import Head from "./Head/Head"
 import AddToDo from './AddToDo/AddToDo'
 import EditToDo from "./AddToDo/EditToDo"
 
+
 export default function HomePage() {
   const [addVisible, setAddVisible] = useState(false);
   const [editMode, setEditMode] = useState(false)
@@ -14,7 +15,7 @@ export default function HomePage() {
   const [week,setWeek] = useState(1);
   return (
     <div>   
-    {addVisible ? <AddToDo setAddVisible = {setAddVisible} addVisible = {addVisible} setTasks = {setTasks}  tasks = {tasks}/> : ""}
+    {addVisible ? <AddToDo week = {week} setAddVisible = {setAddVisible} addVisible = {addVisible} setTasks = {setTasks}  tasks = {tasks}/> : ""}
     {editTarget != -1 && editMode? <EditToDo editTarget={editTarget} setEditTarget={setEditTarget} editMode = {editMode} setEditMode = {setEditMode} setTasks = {setTasks} tasks = {tasks}/> : ''}
 
       <Head week = {week} setWeek = {setWeek}/>

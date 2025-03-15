@@ -17,7 +17,14 @@ export default function TopNavBar() {
 
   return (
     <nav className='navContainer'>
-      <h1>12 Week Planner</h1>
+      <div style={{display: 'flex', gap: '20px'}}>
+
+    
+        <h1>12 Week Planner</h1>
+        <NavLink  to="/plans"><p>Plans</p></NavLink>
+      </div>
+      
+      
       <div className='userLogInSignUp'>
       
       {user ? <UserMenu/> : <NavLink  to="/login"><button className='topNavBarLoginButton'>Log in</button></NavLink> }

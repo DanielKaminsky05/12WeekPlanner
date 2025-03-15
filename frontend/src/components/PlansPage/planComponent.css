@@ -1,0 +1,83 @@
+
+.planComponentContainer {
+    width: 300px;
+    min-height: 80px;
+    max-height: fit-content;
+    border: 1.5px solid black;
+    
+    margin-right: 0px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    border-radius: 5px;
+    overflow: hidden;
+     transition: 0.2s ease;
+}
+
+.planComponentContainer:hover {
+    transform: scale(1.05);
+    transition: 0.2s ease;
+}
+
+
+.planInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    justify-content: center;
+}
+
+.planTitle {
+    font-weight: 300;
+    margin: 0px;
+    font-size: 40px;
+    
+}
+
+.planCurrentWeek {
+    margin: 0px;
+    
+}
+.planColour {
+    border-left: 1px solid black;
+}
+
+
+.editComponentContainer {
+    background-color: #840484EE;
+    height: 100px;
+    width: 100px;
+
+    border-radius: 10px;
+    border: solid black 1.5px;
+    transition: 0.2s ease;
+
+    svg {
+        width: 100%;
+    }
+    
+}
+
+.editComponentContainer:hover {
+    transform: scale(1.05);
+    transition: 0.2s ease;
+}
+
+.createComponentContainer {
+    background-color: #840484EE;
+    height: 80px;
+    width: 80px;
+
+    border-radius: 10px;
+    border: solid black 1.5px;
+    transition: 0.2s ease;
+
+    svg {
+        width: 100%;
+    }
+    
+}
+
+.createComponentContainer:hover {
+    transform: scale(1.05);
+    transition: 0.2s ease;
+}

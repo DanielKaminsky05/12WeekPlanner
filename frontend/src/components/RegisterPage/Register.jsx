@@ -38,7 +38,7 @@ export default function Register() {
     const {user, error} = await supabase.auth.signUp({email, password});
     if (error) {
       if (error.status = 422) {
-        setPasswordError("Error: Email Address is taken")
+        setPasswordError(error.message)
       }
       else setPasswordError(error.message)
     }

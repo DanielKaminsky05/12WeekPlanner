@@ -28,7 +28,7 @@ export default function Calendar(props) {
       {dates.map((date, index) => {
         const tasksDay = []; // Initialize tasksDay for each date
         props.tasks.forEach((task) => {
-          if (task.days && task.days[days[date.getDay()]] === true) {
+          if (task.days && task.days[days[date.getDay()]] === true && props.week == task.week) {
             tasksDay.push(task);
           }
         });
