@@ -1,5 +1,5 @@
 import React from "react";
-import "./sideNavBar.css";
+import "./SideNavBar.css"
 
 export default function SideNavBar(props) {
   
